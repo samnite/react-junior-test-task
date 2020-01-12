@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import { logIn } from '../store/actions/data-actions';
 
 const styles = theme => ({
-  ...theme.spreadThis,
+  ...theme.custom,
 });
 
 const Login = ({ classes, history, logIn, alert }) => {

@@ -4,7 +4,7 @@ import { StyledContainer } from '../shared/ui/components';
 const Home = () => {
   return (
     <StyledContainer>
-      <h1>React Junior Test Task</h1>
+      <h1>Main Page</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi deserunt impedit, minima
         pariatur placeat reprehenderit ut? Aspernatur atque consectetur error expedita in nisi

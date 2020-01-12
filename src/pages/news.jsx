@@ -17,6 +17,7 @@ const News = ({ getNews, news, alert }) => {
 
   return (
     <StyledContainer>
+      <h1>News Page</h1>
       {news.map(newsItem => {
         return <NewsItem newsItem={newsItem} key={newsItem.title} />;
       })}

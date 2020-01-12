@@ -1,13 +1,6 @@
 import axios from 'axios';
 import { SET_ALERT, SET_AUTHENTICATED, SET_NEWS } from '../types';
 
-export const setAlert = alert => {
-  return {
-    type: SET_ALERT,
-    payload: alert,
-  };
-};
-
 export const logIn = (username, password, history) => dispatch => {
   if (username === 'Admin' && password === '12345') {
     dispatch({ type: SET_AUTHENTICATED });

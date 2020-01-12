@@ -51,9 +51,10 @@ const StyledNavbar = styled.nav`
 const Navbar = ({ setAuth, isAuth }) => {
   useEffect(() => {
     const token = localStorage.isAuthenticated;
-    if (token) setAuth();
-    // eslint-disable-next-line
-  }, []);
+    if (token) {
+      setAuth();
+    }
+  }, [isAuth]);
   return (
     <>
       <StyledNavbar>
