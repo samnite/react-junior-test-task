@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { setAuth } from '../../store/actions/data-actions';
 
 const StyledNavbar = styled.nav`
   position: sticky;
@@ -45,7 +48,12 @@ const StyledNavbar = styled.nav`
   }
 `;
 
-const Navbar = () => {
+const Navbar = ({ setAuth, isAuth }) => {
+  useEffect(() => {
+    const token = localStorage.isAuthenticated;
+    if (token) setAuth();
+    // eslint-disable-next-line
+  }, []);
   return (
     <>
       <StyledNavbar>
@@ -60,9 +68,7 @@ const Navbar = () => {
           <li>
             <Link to="/news">News</Link>
           </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
+          <li>{isAuth ? null : <Link to="/login">Login</Link>}</li>
           <li>
             <Link to="/profile">Profile</Link>
           </li>
@@ -72,4 +78,13 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+Navbar.propTypes = {
+  setAuth: PropTypes.func.isRequired,
+  isAuth: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = state => ({
+  isAuth: state.data.isAuth,
+});
+
+export default connect(mapStateToProps, { setAuth })(Navbar);
