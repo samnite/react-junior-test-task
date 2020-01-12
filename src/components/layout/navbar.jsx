@@ -54,7 +54,8 @@ const Navbar = ({ setAuth, isAuth }) => {
     if (token) {
       setAuth();
     }
-  }, [isAuth]);
+    // eslint-disable-next-line
+  }, []);
   return (
     <>
       <StyledNavbar>
